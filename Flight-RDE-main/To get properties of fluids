@@ -1,0 +1,35 @@
+import CoolProp.CoolProp as CP
+import math
+import numpy as np
+
+fluid = 'Ethylene'
+
+P0 = 50 #TANK PRESSURE IN BAR
+T0 = -10  #TANK TEMPERATURE IN oC
+
+density = CP.PropsSI('D', 'T', T0+273.15, 'P', P0*1e5, fluid)
+H0 = CP.PropsSI('H', 'T', T0+273.15, 'P', P0*1e5, fluid)
+s0 = CP.PropsSI('S', 'T', T0+273.15, 'P', P0*1e5, fluid)
+phase = CP.PhaseSI('T', T0+273.15, 'P', P0*1e5, fluid)
+
+print(f'Density C2H4: {density: .2f} kg/m^3')
+print(f'Enthalpy C2H4: {H0*1e-3: .2f} kJ/kg')
+print(f'Entropy C2H4: {s0*1e-3: .2f} kJ/kg.K')
+print(f'Phase C2H4: {phase}')
+
+print('--------------')
+
+fluid = 'NitrousOxide'
+
+P0 = 50 #TANK PRESSURE IN BAR
+T0 = -10  #TANK TEMPERATURE IN oC
+
+density = CP.PropsSI('D', 'T', T0+273.15, 'P', P0*1e5, fluid)
+H0 = CP.PropsSI('H', 'T', T0+273.15, 'P', P0*1e5, fluid)
+s0 = CP.PropsSI('S', 'T', T0+273.15, 'P', P0*1e5, fluid)
+phase = CP.PhaseSI('T', T0+273.15, 'P', P0*1e5, fluid)
+
+print(f'Density N2O: {density: .2f} kg/m^3')
+print(f'Enthalpy N2O: {H0*1e-3: .2f} kJ/kg')
+print(f'Entropy N2O: {s0*1e-3: .2f} kJ/kg.K')
+print(f'Phase N2O: {phase}')
